@@ -1,9 +1,8 @@
 import mongoose from "mongoose"
 
-import DatabaseConnection from "./config"
 
-//make sure to connect tot database
-DatabaseConnection()
+
+
 
 mongoose.Promise = global.Promise;
 
@@ -19,4 +18,4 @@ const userSchema = new mongoose.Schema({
 
 
 //user model
-export const Users = mongoose.models.Users ||   mongoose.model("Users", userSchema)
+export const Users = mongoose.models.Users || mongoose.model("Users", userSchema)

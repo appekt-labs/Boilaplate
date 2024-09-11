@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SessionProvider from "@/components/Auth/SessionProvider";
-
+import DatabaseConnection from "../db/config";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,6 +15,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  (async () => {
+    await DatabaseConnection();
+  })();
   return (
     <html lang="en">
       <body className={inter.className}>

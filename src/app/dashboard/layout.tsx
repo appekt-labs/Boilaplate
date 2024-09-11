@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import SessionProvider from "@/components/Auth/SessionProvider";
 import { cn } from "../../lib/utils";
-import Navigation from "@/components/Dashboard/Navigation";
+import Navigation from "@/components/Dashboard/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,17 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-     
-        <body className={cn(inter.className, "")}>
+      <body className={cn(inter.className, "")}>
         <SessionProvider>
-          <div className="flex lg:h-screen bg-amber-200">
-          <Navigation />
-          <main className=" bg-red-700 w-full">{children}</main>
+          <div className="flex lg:h-screen ">
+            <Navigation />
+            <main className=" w-full">{children}</main>
           </div>
-
-          </SessionProvider>
-        </body>
-      
+        </SessionProvider>
+      </body>
     </html>
   );
 }

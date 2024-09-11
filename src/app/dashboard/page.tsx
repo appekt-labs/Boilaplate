@@ -1,11 +1,18 @@
-"use client"
-import React from 'react'
-import withAuth from '@/components/Auth/withAuth';
+"use client";
+import React from "react";
+import withAuth from "@/components/Auth/withAuth";
+import TopBar from "@/components/Dashboard/TopBar";
 
 function page() {
   return (
-    <div className='flex items-center justify-center h-full'>page</div>
-  )
+    <div
+      suppressHydrationWarning
+      className="flex items-center justify-center h-full"
+    >
+      <TopBar />
+      {/* page */}
+    </div>
+  );
 }
 
-export default withAuth(page)
+export default withAuth(page);
