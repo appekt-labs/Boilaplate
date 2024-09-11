@@ -4,7 +4,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 
 function ProfileDropdown() {
   return (
-    <div>
+    <div className="flex items-center gap-2">
       <span>My Store</span>
       <Avatar>
         <AvatarImage src="" />

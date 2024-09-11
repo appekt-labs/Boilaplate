@@ -6,17 +6,17 @@ import DatePicker from "./DatePicker";
 import ProfileDropdown from "./ProfileDropdown";
 function TopBar() {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex max-h-20 items-center justify-between w-full">
       {/* right */}
-      <div>
-        <div>
+      <div className="flex gap-3 items-center">
+        <div className="flex gap-1 items-center">
           <FaSearch />
           <Input />
         </div>
         <DatePicker />
       </div>
       {/* left */}
-      <div>
+      <div className="flex gap-3 items-center">
         <div>
           <TbMail />
           <span></span>
