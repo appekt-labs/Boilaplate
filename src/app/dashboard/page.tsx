@@ -6,7 +6,7 @@ import TopBar from "@/components/Dashboard/TopBar";
 function page() {
   return (
     <div
-      suppressHydrationWarning
+      suppressHydrationWarning={true}
       className="flex items-center justify-center h-full"
     >
       <TopBar />
