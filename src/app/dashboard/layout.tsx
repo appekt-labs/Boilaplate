@@ -19,13 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "")}>
-        <SessionProvider>
-          <div className="flex lg:h-screen ">
-            <Navigation />
-            <main className=" w-full">{children}</main>
-          </div>
-        </SessionProvider>
+      <body className={cn(inter.className, "bg-gray-50")}>
+        <div className="flex lg:h-screen p-2">
+          <Navigation />
+          <main className="w-full p-4">{children}</main>
+        </div>
       </body>
     </html>
   );

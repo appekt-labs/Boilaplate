@@ -1,5 +1,6 @@
 import React from "react";
-import { TbLogout, TbSettings, TbSmartHome } from "react-icons/tb";
+import { TbSettings, TbSmartHome } from "react-icons/tb";
+import { TbLogout2 as TbLogout } from "react-icons/tb";
 import { TbShoppingCart } from "react-icons/tb";
 import { TbBrandShopee } from "react-icons/tb";
 import { TbReportSearch } from "react-icons/tb";
@@ -7,6 +8,7 @@ import { TbUsers } from "react-icons/tb";
 import { LogoMark, LogoMascot } from "../Logos";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import LogoutButton from "./LogoutButton";
 export default function Sidebar() {
   const navLinks: { name: string; link: string; icon: JSX.Element }[] = [
     {
@@ -36,7 +38,7 @@ export default function Sidebar() {
     },
   ];
   return (
-    <div className="p-2 lg:w-[200px] flex flex-col justify-between px-2 md:px-3 lg:px-4">
+    <aside className="p-2 lg:w-[200px] flex flex-col justify-between px-2 md:px-3 lg:px-4">
       {/* upper section */}
       <div className="divide-y-2">
         {/* Logo Section */}
@@ -47,11 +49,17 @@ export default function Sidebar() {
           </span>
         </div>
         {/* other navigation */}
-        <div className="py-3 font-semibold">
+        <div className="py-3  grid gap-1">
           {navLinks.map((navLink, idx) => (
-            <div key={`${navLink.name + idx}`}>
+            <div
+              key={`${navLink.name + idx}`}
+              className="hover:bg-gray-300 hover:font-semibold bg-gray-100 transition-colors px-1 rounded-sm"
+            >
               <Link href={navLink.link} className="py-2 flex items-center">
-                <span className="text-2xl mr-2"> {navLink.icon} </span>{" "}
+                <span className="hover:text-2xl text-xl  mr-2">
+                  {" "}
+                  {navLink.icon}{" "}
+                </span>{" "}
                 <span className="text-sm">{navLink.name}</span>
               </Link>
             </div>
@@ -70,15 +78,9 @@ export default function Sidebar() {
           </Link>
         </div>
         <div>
-          <Button className="py-2 flex items-center">
-            <span className="text-2xl mr-2">
-              {" "}
-              <TbLogout />{" "}
-            </span>{" "}
-            <span className="text-sm">Log Out</span>
-          </Button>
+          <LogoutButton />
         </div>
       </div>
-    </div>
+    </aside>
   );
 }

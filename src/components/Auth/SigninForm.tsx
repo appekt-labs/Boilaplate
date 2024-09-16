@@ -53,7 +53,7 @@ function SigninForm() {
     });
     console.log("Response from next-auth", resp);
 
-    if (!resp?.error) {
+    if (resp?.ok) {
       router.push("/");
     }
   }

@@ -22,8 +22,11 @@ import { BuiltInProviderType } from "next-auth/providers/index";
 import { useFormik } from "formik";
 import { SigninFormSchema } from "@/lib/validationSchema";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 function RegisterForm() {
+  const router = useRouter();
   const { values, touched, handleSubmit, handleBlur, handleChange, errors } =
     useFormik({
       initialValues: { email: "", password: "" },
@@ -45,6 +48,7 @@ function RegisterForm() {
     const { email, password } = values;
     // Add your own logic for registering the user
     // You could use NextAuth's signIn method or any other API to register the user
+    // Since NextAuth doesn't have signup/register, a custom route is used and the signin function is triggered if successful
     const response = await axios.post("/api/auth/register", {
       email,
       password,
@@ -53,6 +57,21 @@ function RegisterForm() {
     console.log("response from server", response.data);
     // Example: await signIn('credentials', { email, password })
     console.log("Registered user:", { email, password });
+
+    if (response.status >= 400) {
+      toast.error(response.data.message || "Error");
+    }
+
+    const result = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    if (result?.ok) {
+      //inform the user that it was success and redirect them to the dashboard
+      toast.success(response.data.message || "Success");
+      router.push("/dashboard");
+    }
   }
   return (
     <Card className="w-[350px]">
