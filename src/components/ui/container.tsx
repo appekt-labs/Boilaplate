@@ -14,7 +14,7 @@ const Container = ({
     <div
       className={cn(
         className,
-        "grid gap-4 md:gap-5 lg:gap-6 max-w-7xl, mx-2 md:mx-4 lg:mx-auto md:px-2 px-1"
+        "grid gap-4 md:gap-5 lg:gap-6 max-w-6xl mx-2 md:mx-4 lg:mx-auto md:px-2 px-1"
       )}
     >
       {children}

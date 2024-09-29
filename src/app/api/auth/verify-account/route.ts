@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { Users } from "@/db/schema"
+import { Users } from "@/db/schemas"
 export async function GET(req: NextRequest) {
     try {
         const url = new URL(req.url)

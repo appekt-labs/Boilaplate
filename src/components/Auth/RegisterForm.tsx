@@ -24,15 +24,23 @@ import { SigninFormSchema } from "@/lib/validationSchema";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { FaSpinner } from "react-icons/fa6";
 
 function RegisterForm() {
   const router = useRouter();
-  const { values, touched, handleSubmit, handleBlur, handleChange, errors } =
-    useFormik({
-      initialValues: { email: "", password: "" },
-      onSubmit: handleRegister,
-      validationSchema: SigninFormSchema,
-    });
+  const {
+    values,
+    touched,
+    isSubmitting,
+    handleSubmit,
+    handleBlur,
+    handleChange,
+    errors,
+  } = useFormik({
+    initialValues: { email: "", password: "" },
+    onSubmit: handleRegister,
+    validationSchema: SigninFormSchema,
+  });
 
   async function handleSocialAuth(
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
@@ -91,6 +99,7 @@ function RegisterForm() {
                 name="email"
                 id="email"
                 type="email"
+                disabled={isSubmitting}
                 placeholder="johndoe@gmail.com"
                 className={cn(
                   errors.email && touched.email && "focus-visible:ring-red-700"
@@ -103,6 +112,7 @@ function RegisterForm() {
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="password">Password</Label>
               <Input
+                disabled={isSubmitting}
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.password}
@@ -120,14 +130,21 @@ function RegisterForm() {
                 <span className=" text-sm text-red-700">{errors.password}</span>
               )}
             </div>
-            <Button type="submit">Register</Button>
+            <Button disabled={isSubmitting} type="submit">
+              {isSubmitting && (
+                <span className="flex animate-spin justify-center items-center mr-2">
+                  <FaSpinner />
+                </span>
+              )}
+              Register
+            </Button>
           </div>
         </form>
       </CardContent>
       <CardFooter className="grid text-center">
         <span>
           Already have an Account?{" "}
-          <Link className="text-blue-950" href="/auth/signin">
+          <Link className="" href="/auth/signin">
             Sign In
           </Link>
         </span>

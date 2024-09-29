@@ -12,3 +12,4 @@
 - Add features
   - Add pricing to the waiting list.
 - Build Documentation for Boilaplate using Vuepress. This will be a public repo. 
+

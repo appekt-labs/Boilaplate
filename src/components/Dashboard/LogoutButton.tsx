@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../ui/button";
-import { TbLogout } from "react-icons/tb";
+import { TbLogout2 as TbLogout } from "react-icons/tb";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import {
@@ -15,18 +15,28 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { FaSpinner } from "react-icons/fa";
 
 function LogoutButton() {
+  const [isSigningOut, setIsSigningOut] = useState(false);
+
   const router = useRouter();
   //handle logout
   function handleLogout(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    e.preventDefault();
+    try {
+      setIsSigningOut(true);
+      e.preventDefault();
 
-    //logs out the user
-    signOut();
+      //logs out the user
+      signOut();
 
-    //redirects the user to the signin page
-    router.push("/auth/signin");
+      //redirects the user to the signin page
+      router.push("/auth/signin");
+    } catch (error) {
+      console.log("error-logging-out", error);
+    } finally {
+      setIsSigningOut(false);
+    }
   }
 
   return (
@@ -35,7 +45,7 @@ function LogoutButton() {
         <Button variant="outline" className="py-2 px-4 flex items-center">
           <span className="text-2xl mr-2">
             {" "}
-            <TbLogout />{" "}
+            <TbLogout strokeWidth={1} />{" "}
           </span>{" "}
           <span className="text-sm">Log Out</span>
         </Button>
@@ -53,7 +63,13 @@ function LogoutButton() {
           <AlertDialogAction
             className="bg-red-600 shadow-sm"
             onClick={handleLogout}
+            disabled={isSigningOut}
           >
+            {isSigningOut && (
+              <span className="flex items-center animate-spin justify-center mr-1">
+                <FaSpinner />
+              </span>
+            )}
             Continue
           </AlertDialogAction>
         </AlertDialogFooter>

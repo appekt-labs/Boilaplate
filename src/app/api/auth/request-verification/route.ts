@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { getServerSession } from "next-auth";
 import { v4 as uuidv4 } from 'uuid';
-import { Users } from "@/db/schema";
+import { Users } from "@/db/schemas";
 import sendEmail from "@/lib/sendEmail";
 import VerifyAccount from '../../../../components/EmailTemplates/VerifyAccount';
 

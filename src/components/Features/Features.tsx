@@ -64,10 +64,10 @@ function Features() {
               Features
             </h1>
             <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
-              Our Next.js boilerplate comes packed with a suite of powerful
+              {`  Our Next.js boilerplate comes packed with a suite of powerful
               features designed to accelerate your development process and
               enhance your application's performance. Here's what you can
-              expect:
+              expect:`}
             </p>
           </div>
         </div>

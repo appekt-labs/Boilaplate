@@ -10,9 +10,7 @@ function TopBar() {
   return (
     <div className="flex max-h-20 items-center justify-between w-full">
       {/* right */}
-      <div className="flex gap-3 items-center">
-        <DatePicker />
-      </div>
+      <div className="flex gap-3 items-center">{/* <DatePicker /> */}</div>
       {/* left */}
       <div className="flex gap-3 items-center text-gray-600/80">
         <UpgradeButton />

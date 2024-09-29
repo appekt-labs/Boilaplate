@@ -3,7 +3,7 @@ import GithubProvider from "next-auth/providers/github";
 import LinkedInProvider from "next-auth/providers/linkedin";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { Users } from "@/db/schema";
+import { Users } from "@/db/schemas";
 import bcrypt from 'bcryptjs';
 console.log("private", process.env.GITHUB_SECRET);
 

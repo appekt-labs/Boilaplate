@@ -14,31 +14,31 @@ export default function Sidebar() {
     {
       name: "Home",
       link: "/dashboard",
-      icon: <TbSmartHome />,
+      icon: <TbSmartHome strokeWidth={1} />,
     },
     {
       name: "Sales",
       link: "/dashboard/sales",
-      icon: <TbShoppingCart />,
+      icon: <TbShoppingCart strokeWidth={1} />,
     },
     {
       name: "Products",
       link: "/dashboard/products",
-      icon: <TbBrandShopee />,
+      icon: <TbBrandShopee strokeWidth={1} />,
     },
     {
       name: "Reports",
       link: "/dashboard/reports",
-      icon: <TbReportSearch />,
+      icon: <TbReportSearch strokeWidth={1} />,
     },
     {
       name: "Customers",
       link: "/dashboard/customers",
-      icon: <TbUsers />,
+      icon: <TbUsers strokeWidth={1} />,
     },
   ];
   return (
-    <aside className="p-2 lg:w-[200px] flex flex-col justify-between px-2 md:px-3 lg:px-4">
+    <div className="p-2 lg:w-[200px] flex flex-col justify-between px-2 md:px-3 lg:px-4">
       {/* upper section */}
       <div className="divide-y-2">
         {/* Logo Section */}
@@ -56,7 +56,7 @@ export default function Sidebar() {
               className="hover:bg-gray-300 hover:font-semibold bg-gray-100 transition-colors px-1 rounded-sm"
             >
               <Link href={navLink.link} className="py-2 flex items-center">
-                <span className="hover:text-2xl text-xl  mr-2">
+                <span className="hover:text-2xl text-xl font-light mr-2">
                   {" "}
                   {navLink.icon}{" "}
                 </span>{" "}
@@ -72,7 +72,7 @@ export default function Sidebar() {
           <Link href={"/dashboard/settings"} className="py-2 flex items-center">
             <span className="text-2xl mr-2">
               {" "}
-              <TbSettings />{" "}
+              <TbSettings strokeWidth={1} />{" "}
             </span>{" "}
             <span className="text-sm">Settings</span>
           </Link>
@@ -81,6 +81,6 @@ export default function Sidebar() {
           <LogoutButton />
         </div>
       </div>
-    </aside>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Users } from '@/db/schema'
+import { Users } from '@/db/schemas'
 import bcrypt from 'bcryptjs'
 export async function POST(request: Request) {
     try {

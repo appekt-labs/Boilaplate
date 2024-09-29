@@ -2,6 +2,11 @@ const withMDX = require("@next/mdx")();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  //making development faster
+  experimental: {
+    swcMinify: true,
+
+  },
   images: {
     remotePatterns: [
       {
@@ -10,6 +15,10 @@ const nextConfig = {
         // port: '',
         // pathname: '/account123/**',
       },
+      {
+        hostname: "placeholder.co",
+        protocol: "https"
+      }
     ],
   },
   // Configure `pageExtensions` to include MDX files

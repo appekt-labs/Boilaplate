@@ -5,7 +5,7 @@ import { WaitListHeroSection } from "@/components/WaitList";
 import { WaitListNavbar } from "@/components/WaitList";
 import { WaitListSocials } from "@/components/WaitList";
 import Pricing from "@/components/WaitList/Pricing";
-import WaitListFooter from "@/components/WaitList/WaitListFooter";
+import Footer from "@/components/Footer";
 import React from "react";
 
 export default function Page() {
@@ -18,7 +18,7 @@ export default function Page() {
         <WaitListSocials />
         <Features />
         <Pricing />
-        <WaitListFooter />
+        <Footer />
       </Container>
     </main>
   );

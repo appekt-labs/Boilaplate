@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { NextRequest } from "next/server";
 import { v4 as uuidv4 } from 'uuid';
-import { Users } from "@/db/schema";
+import { Users } from "@/db/schemas";
 import sendEmail from "@/lib/sendEmail";
 import ResetPassword from "@/components/EmailTemplates/ResetPassword";
 

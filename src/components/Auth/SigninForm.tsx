@@ -22,15 +22,23 @@ import Link from "next/link";
 import { BuiltInProviderType } from "next-auth/providers/index";
 import { SigninFormSchema } from "@/lib/validationSchema";
 import { cn } from "@/lib/utils";
+import { FaSpinner } from "react-icons/fa6";
 
 function SigninForm() {
   const router = useRouter();
-  const { values, touched, handleSubmit, handleBlur, handleChange, errors } =
-    useFormik({
-      initialValues: { email: "", password: "" },
-      onSubmit: handleSignIn,
-      validationSchema: SigninFormSchema,
-    });
+  const {
+    values,
+    touched,
+    isSubmitting,
+    handleSubmit,
+    handleBlur,
+    handleChange,
+    errors,
+  } = useFormik({
+    initialValues: { email: "", password: "" },
+    onSubmit: handleSignIn,
+    validationSchema: SigninFormSchema,
+  });
   async function handleSocialAuth(
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
     type: LiteralUnion<BuiltInProviderType>
@@ -73,6 +81,7 @@ function SigninForm() {
                 id="email"
                 value={values.email}
                 onChange={handleChange}
+                disabled={isSubmitting}
                 onBlur={handleBlur}
                 type="email"
                 placeholder="johndoe@gmail.com"
@@ -92,6 +101,7 @@ function SigninForm() {
                 type="password"
                 onBlur={handleBlur}
                 value={values.password}
+                disabled={isSubmitting}
                 onChange={handleChange}
                 placeholder="pass123!"
                 className={cn(
@@ -106,10 +116,17 @@ function SigninForm() {
             </div>
             <Button
               disabled={
-                errors.password !== undefined || errors.email !== undefined
+                errors.password !== undefined ||
+                errors.email !== undefined ||
+                isSubmitting
               }
               type="submit"
             >
+              {isSubmitting && (
+                <span className="flex animate-spin justify-center items-center mr-2">
+                  <FaSpinner />
+                </span>
+              )}
               Sign In
             </Button>
           </div>

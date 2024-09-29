@@ -19,7 +19,7 @@ export default function VerifyAccount(props: { verificationLink: string }) {
   return (
     <Html>
       <Head />
-      <Preview>BoilaPlate Email Verification</Preview>
+      <Preview>[COMPANY_NAME] Email Verification</Preview>
       <Body style={main}>
         <Container style={container}>
           <Section style={coverSection}>
@@ -28,7 +28,7 @@ export default function VerifyAccount(props: { verificationLink: string }) {
                 src={`https://fakeimg.pl/600x400`}
                 width="75"
                 height="45"
-                alt="BoilaPlate's Logo"
+                alt="[COMPANY_NAME]'s Logo"
               />
             </Section>
             <Section style={upperSection}>
@@ -57,13 +57,13 @@ export default function VerifyAccount(props: { verificationLink: string }) {
             </Section>
           </Section>
           <Text style={footerText}>
-            This message was produced and distributed by BoilaPlate. All rights
-            reserved. BoilaPlate is a registered trademark of{" "}
-            <Link href="https://appekt-labs.com" target="_blank" style={link}>
-              Appekt Labs
+            This message was produced and distributed by [COMPANY_NAME]. All
+            rights reserved. [COMPANY_NAME] is a registered trademark of{" "}
+            <Link href="https://example.com" target="_blank" style={link}>
+              COMPANY_NAME
             </Link>
             , Inc. View our{" "}
-            <Link href="https://appekt-labs.com" target="_blank" style={link}>
+            <Link href="https://example.com" target="_blank" style={link}>
               privacy policy
             </Link>
             .

@@ -4,6 +4,8 @@ import "./globals.css";
 import SessionProvider from "@/components/Auth/SessionProvider";
 import DatabaseConnection from "../db/config";
 import { Toaster } from "react-hot-toast";
+import QueryProvider from "../components/QueryProvider";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,7 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider>{children}</SessionProvider>
+        <SessionProvider>
+          <QueryProvider>
+            {children}
+
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryProvider>
+        </SessionProvider>
+
         <Toaster />
       </body>
     </html>

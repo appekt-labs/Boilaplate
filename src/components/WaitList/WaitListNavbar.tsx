@@ -8,12 +8,15 @@ function WaitListNavbar() {
   return (
     <nav className="flex justify-between items-center py-2 m">
       {/* Logo */}
-      <div className="flex gap-2 items-center">
-        <LogoMascot />
-        <span className="hidden md:block">
-        <LogoMark />
-        </span>
-      </div>
+      <Link href="/">
+        <div className="flex gap-2 items-center">
+          <LogoMascot />
+          <span className="hidden md:block">
+            <LogoMark />
+          </span>
+        </div>
+      </Link>
+
       {/* Navigation */}
       <div className="flex items-center gap-2">
         <Link href="#features">Features</Link>

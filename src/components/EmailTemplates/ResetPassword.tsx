@@ -35,7 +35,7 @@ export const ResetPassword = ({
             src={`https://fakeimg.pl/600x400`}
             width="40"
             height="33"
-            alt="Dropbox"
+            alt="Company_Logo"
           />
           <Section>
             <Text style={text}>Hi {userFirstname},</Text>
@@ -53,7 +53,7 @@ export const ResetPassword = ({
             <Text style={text}>
               To keep your account secure, please don&apos;t forward this email
               to anyone. See our Help Center for{" "}
-              <Link style={anchor} href="https://appekt-labs.com">
+              <Link style={anchor} href="https://example.com">
                 more security tips.
               </Link>
             </Text>
@@ -67,7 +67,7 @@ export const ResetPassword = ({
 
 ResetPassword.PreviewProps = {
   userFirstname: "Alan",
-  resetPasswordLink: "https://appekt-labs.com",
+  resetPasswordLink: "https://example.com",
 } as ResetPasswordProps;
 
 export default ResetPassword;

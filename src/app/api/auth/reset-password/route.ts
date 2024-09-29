@@ -1,5 +1,5 @@
 import bcyrpt from 'bcryptjs';
-import { Users } from "@/db/schema";
+import { Users } from "@/db/schemas";
 import { NextRequest } from "next/server"
 
 export async function POST(req: NextRequest) {
